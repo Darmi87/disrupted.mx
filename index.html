@@ -1,35 +1,171 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>DISRUPTED</title>
-  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/style.css" />
+  <link rel="icon" href="assets/img/favicon.ico" />
+  
 </head>
 <body>
-  <header>
-    <h1>DISRUPTED</h1>
-    <p>Marketing de influencers en LATAM</p>
-  </header>
+  <!-- Navbar -->
+  <nav class="navbar">
+    <a href="#hero">
+      <img src="assets/img/DISRUPTED.png" alt="DISRUPTED" class="nav-logo" />
+    </a>
+    <ul class="nav-links">
+      <li><a href="#about">Quiénes somos</a></li>
+      <li><a href="#reach">Alcance</a></li>
+      <li><a href="#talents">Talentos</a></li>
+      <li><a href="#brands">Marcas</a></li>
+      <li><a href="#contact">Contacto</a></li>
+    </ul>
+  </nav>
 
-  <section id="quienes-somos">
-    <h2>Quiénes somos</h2>
-    <p>Somos una agencia de marketing disruptiva...</p>
+  <!-- Hero con video -->
+  <section id="hero">
+    <video autoplay muted loop playsinline>
+      <source src="assets/video/video.mp4" type="video/mp4" />
+      Tu navegador no soporta video HTML5.
+    </video>
+    <div class="hero-overlay">
+      <img src="assets/img/boxlogo.png" alt="Out of the Box Logo" />
+    </div>
   </section>
 
-  <section id="roster">
-    <h2>Roster</h2>
-    <p>Influencers que forman parte de nuestro equipo.</p>
+  <!-- Quiénes somos -->
+<section id="about" class="about-section" data-aos="fade-up">
+  <h2>QUIÉNES SOMOS</h2>
+  <p>
+No somos una agencia más.
+En <span class="highlight">Disrupted</span> diseñamos campañas donde la creatividad conecta, emociona y convierte.
+Acompañamos a las marcas desde el insight hasta la ejecución, potenciando a los creadores con ideas que dejan huella.
+Estrategia, comunidad y storytelling en su máxima expresión.
+  </p>
+</section>
+
+
+
+ <!-- Alcance -->
+<section id="reach">
+  <div class="metrics">
+    <div>
+      <img src="assets/img/instagram.png" class="metric-icon" alt="Instagram">
+      <strong class="count" data-target="27">+0M</strong>
+      <span>followers en Instagram</span>
+    </div>
+    <div>
+      <img src="assets/img/youtube.png" class="metric-icon" alt="YouTube">
+      <strong class="count" data-target="70">+0M</strong>
+      <span>subscribers en YouTube</span>
+    </div>
+    <div>
+      <img src="assets/img/tiktok.png" class="metric-icon" alt="TikTok">
+      <strong class="count" data-target="99">+0M</strong>
+      <span>followers en TikTok</span>
+    </div>
+  </div>
+</section>
+
+<script>
+  // Animación al hacer scroll
+  function animateCounters() {
+    const counters = document.querySelectorAll('.count');
+    const options = { threshold: 0.7 };
+  
+    const observer = new IntersectionObserver(function (entries, observer) {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const counter = entry.target;
+          const updateCount = () => {
+            const target = +counter.getAttribute('data-target');
+            const current = +counter.textContent.replace('+', '').replace('M', '');
+            const increment = Math.ceil(target / 50);
+
+            if (current < target) {
+              counter.textContent = `+${Math.min(current + increment, target)}M`;
+              setTimeout(updateCount, 40);
+            } else {
+              counter.textContent = `+${target}M`;
+            }
+          };
+          updateCount();
+          observer.unobserve(counter);
+        }
+      });
+    }, options);
+
+    counters.forEach(counter => observer.observe(counter));
+  }
+
+  document.addEventListener('DOMContentLoaded', animateCounters);
+</script>
+
+
+  <!-- Talentos -->
+  <section id="talents">
+    <h2>Nuestros Talentos</h2>
+    <div class="talent-grid" id="talentGrid"></div>
   </section>
 
-  <section id="clientes">
-    <h2>Clientes</h2>
-    <p>Marcas que confiaron en nosotros.</p>
-  </section>
+  <!-- Marcas -->
+<section id="marcas" class="brands-section">
+  <h2>Marcas que confiaron en nosotros</h2>
+  <div class="brands-grid">
+    <img src="assets/img/brands/ea.png" alt="EA Sports">
+    <img src="assets/img/brands/gamergy.png" alt="Gamergy">
+    <img src="assets/img/brands/garena.png" alt="Garena">
+    <img src="assets/img/brands/gg.png" alt="GGTech">
+    <img src="assets/img/brands/sony.png" alt="Sony Music">
+    <img src="assets/img/brands/telcel.png" alt="Telcel">
+    <img src="assets/img/brands/temu.png" alt="Temu">
+    <img src="assets/img/brands/twitch.png" alt="Twitch">
+  </div>
+</section>
 
-  <footer id="contacto">
-    <h2>Contacto</h2>
-    <p>contacto@disrupted.mx</p>
+
+
+  <!-- Contacto -->
+  <footer id="contact">
+    <h2>¿Querés trabajar con nosotros?</h2>
+    <p>Escribinos a <a href="mailto:contacto@disrupted.mx">contacto@disrupted.mx</a></p>
   </footer>
+
+  <!-- JS: Talentos aleatorios -->
+  <script>
+    const talents = [
+      { name: "Aldo", image: "assets/img/talents/aldo.jpg" },
+      { name: "Antrax", image: "assets/img/talents/antrax.jpg" },
+      { name: "Yetus", image: "assets/img/talents/yetus.jpg" },
+      { name: "Barbie", image: "assets/img/talents/barbie.jpg" },
+      { name: "Danyan", image: "assets/img/talents/danyan.jpg" },
+      { name: "Josue", image: "assets/img/talents/josue.jpg" },
+      { name: "Juan", image: "assets/img/talents/juan.jpg" },
+      { name: "Yair", image: "assets/img/talents/yair.jpg" },
+      { name: "Karma", image: "assets/img/talents/karma.jpg" },
+      { name: "Magui Sunshine", image: "assets/img/talents/magui.jpg" },
+      { name: "Scarday", image: "assets/img/talents/scar.jpg" },
+      { name: "Angel soy yo", image: "assets/img/talents/angel.jpg" },
+      { name: "Erkvaldo", image: "assets/img/talents/erk.jpg" },
+      { name: "Kassandra", image: "assets/img/talents/kasandra.jpg" },
+      { name: "Merulah", image: "assets/img/talents/meru.jpg" },
+      { name: "Boomsniper", image: "assets/img/talents/boom.jpg" }
+    ];
+
+    const shuffledTalents = talents.sort(() => Math.random() - 0.5);
+    const grid = document.getElementById("talentGrid");
+
+    shuffledTalents.forEach(talent => {
+      const card = document.createElement("div");
+      card.classList.add("card");
+      card.innerHTML = `
+        <img src="${talent.image}" alt="${talent.name}">
+        <p>${talent.name}</p>
+      `;
+      grid.appendChild(card);
+    });
+  </script>
 </body>
 </html>
