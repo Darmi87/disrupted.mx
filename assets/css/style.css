@@ -313,3 +313,159 @@ footer a {
     padding: 3rem 1rem;
   }
 }
+.talent-profile {
+  padding: 6rem 2rem;
+  display: flex;
+  justify-content: center;
+}
+
+.talent-container {
+  display: flex;
+  flex-wrap: wrap;
+  max-width: 1000px;
+  background: #111;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.talent-image img {
+  width: 100%;
+  max-width: 400px;
+  object-fit: cover;
+  display: block;
+}
+
+.talent-info {
+  padding: 2rem;
+  flex: 1;
+  color: #fff;
+}
+
+.talent-info h1 {
+  font-family: 'Monument', sans-serif;
+  margin-bottom: 1rem;
+}
+
+.talent-socials a {
+  display: inline-block;
+  margin-right: 1rem;
+  color: #f1c40f;
+  text-decoration: none;
+  font-weight: bold;
+}
+.talent-container {
+  opacity: 0;
+  transform: translateY(30px);
+  animation: fadeInUp 0.8s ease-out forwards;
+}
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.talent-image img {
+  opacity: 0;
+  transform: translateX(-30px);
+  animation: fadeImg 0.8s ease-out forwards;
+  animation-delay: 0.2s;
+}
+
+@keyframes fadeImg {
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.talent-info {
+  opacity: 0;
+  transform: translateX(30px);
+  animation: fadeText 0.8s ease-out forwards;
+  animation-delay: 0.4s;
+}
+
+@keyframes fadeText {
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+.talent-image img {
+  transition: transform 0.4s ease, filter 0.4s ease;
+}
+
+.talent-image img:hover {
+  transform: scale(1.05);
+  filter: brightness(1.1);
+}
+.talent-profile {
+  padding: 6rem 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 80vh;
+}
+
+.talent-container {
+  display: flex;
+  flex-wrap: wrap;
+  max-width: 1000px;
+  background: #111;
+  border-radius: 12px;
+  overflow: hidden;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+}
+
+.talent-image img {
+  width: 100%;
+  max-width: 350px;
+  border-radius: 8px;
+}
+.talent-info h1 {
+  font-family: 'Monument', sans-serif;
+  font-size: 2rem; /* Aumenta el tamaño */
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.talent-info p {
+  font-family: 'NeueHaas', sans-serif;
+  font-size: 1.2rem; /* Un poco más grande */
+  line-height: 1.7;
+  color: #ccc;
+  text-align: center;
+}
+
+.talent-socials {
+  margin-top: 1.5rem;
+  text-align: center;
+}
+
+.talent-socials a {
+  display: inline-block;
+  margin: 0 0.5rem;
+  color: #f1c40f;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 1rem;
+}
+.talent-socials a {
+  display: inline-block;
+  margin: 0 0.5rem;
+  color: #f1c40f;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 1rem;
+  transition: color 0.3s ease, transform 0.2s ease;
+}
+
+.talent-socials a:hover {
+  color: #ffffff; /* Cambia a blanco al pasar el mouse */
+  transform: scale(1.1); /* Pequeño zoom */
+  text-shadow: 0 0 10px rgba(241, 196, 15, 0.7); /* Glow dorado */
+}
