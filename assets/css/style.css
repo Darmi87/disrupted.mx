@@ -99,6 +99,19 @@ h1, h2 {
   letter-spacing: 1px;
   margin-bottom: 1rem;
 }
+.about-section h2,
+#talents > h2 {
+  font-size: 3.5rem !important; /* Ajustá a tu gusto */
+  font-family: 'Monument', sans-serif;
+  text-transform: uppercase;
+  font-weight: 900;
+}
+
+@media screen and (max-width: 768px) {
+  .about-section h2, #talents h2 {
+    font-size: 2rem;
+  }
+}
 
 .metrics {
   display: flex;
@@ -469,3 +482,111 @@ footer a {
   transform: scale(1.1); /* Pequeño zoom */
   text-shadow: 0 0 10px rgba(241, 196, 15, 0.7); /* Glow dorado */
 }
+.talent-grid .card {
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.talent-grid .card img {
+  width: 100%;
+  height: 260px;
+  object-fit: cover;
+  border-radius: 8px;
+  display: block;
+  transition: transform 0.3s ease;
+}
+
+/* Capa de sombreado */
+.talent-grid .card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  border-radius: 8px;
+}
+
+/* Texto Ver Perfil centrado */
+.talent-grid .card::after {
+  content: "Ver perfil";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0.8); /* 🔹 Empieza un poco más chico */
+  color: #f7f7f8; /* Blanco */
+  font-size: 1.5rem; /* Más grande */
+  font-weight: 900;   /* Negrita máxima */
+  opacity: 0;
+  transition: opacity 0.3s ease, transform 0.3s ease; /* 🔹 Animación de opacidad + zoom */
+  pointer-events: none;
+  text-shadow: 
+    -2px -2px 0 rgb(31, 44, 223),
+     2px -2px 0 rgb(31, 44, 223),
+    -2px  2px 0 rgb(31, 44, 223),
+     2px  2px 0 rgb(31, 44, 223); /* 🔹 Contorno azul */
+}
+
+/* Hover activa sombra y texto */
+.talent-grid .card:hover::after {
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1); /* 🔹 Hace el pequeño zoom */
+}
+
+
+/* Hover activa sombra y texto */
+.talent-grid .card:hover::before,
+.talent-grid .card:hover::after {
+  opacity: 1;
+}
+
+.talent-grid .card:hover img {
+  transform: scale(1.05);
+}
+
+/* Nombre debajo */
+.talent-grid .card p {
+  margin-top: 0.5rem;
+  font-size: 1.1rem;
+  color: #fff;
+  text-align: center;
+  position: relative;
+  z-index: 2;
+}
+.view-profile {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 1.3rem;
+  font-weight: bold;
+  color: white; /* 👈 blanco */
+  text-shadow: 
+    -2px -2px 0 rgb(31, 44, 223),
+     2px -2px 0 rgb(31, 44, 223),
+    -2px  2px 0 rgb(31, 44, 223),
+     2px  2px 0 rgb(31, 44, 223);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+  z-index: 2;
+}
+
+
+.card:hover .view-profile {
+  opacity: 1;
+}
+
+
+.card img {
+  transition: filter 0.3s ease;
+}
+
+.card:hover img {
+  filter: brightness(0.5); /* Oscurece la imagen en hover */
+}
+

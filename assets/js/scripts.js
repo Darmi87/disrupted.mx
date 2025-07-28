@@ -25,9 +25,14 @@ shuffledTalents.forEach(talent => {
   card.classList.add("card");
   card.innerHTML = `
     <a href="${talent.link}">
-      <img src="${talent.image}" alt="${talent.name}">
+      <div class="image-container">
+        <img src="${talent.image}" alt="${talent.name}">
+        <span class="view-profile">Ver perfil</span>
+      </div>
       <p>${talent.name}</p>
     </a>
   `;
   grid.appendChild(card);
 });
+
+
